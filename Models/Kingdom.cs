@@ -159,7 +159,13 @@ namespace animalKingdom.Models
       notworm.AddNode(tape);
       fluke.Parent = notworm;
       tape.Parent = notworm;
+
     }
+    // private void createRels(Node parent, Node child)
+    // {
+    //   parent.AddNode(child);
+    //   child.Parent = parent;
+    // }
     public Kingdom()
     {
       Setup();

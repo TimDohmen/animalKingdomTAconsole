@@ -35,6 +35,12 @@ namespace animalKingdom.Controllers
           break;
         case "p":
         case "prev":
+          System.Console.Write("Loading");
+          for (int i = 0; i < 3; i++)
+          {
+            Console.Write(".");
+            Thread.Sleep(200);
+          }
           Console.Clear();
           ks.PreviousNode();
           break;
@@ -52,6 +58,7 @@ namespace animalKingdom.Controllers
           }
           else
           {
+            Console.Clear();
             Console.WriteLine("Invalid selection");
           }
           break;
