@@ -12,9 +12,9 @@ namespace animalKingdom.Controllers
     {
       Console.Clear();
       Console.WriteLine("Welcome to the Animalia Kingdom");
-
       while (true)
       {
+        ks.PrintKingdoms();
         GetUserInput();
         Print();
       }
@@ -27,13 +27,13 @@ namespace animalKingdom.Controllers
       {
         case "q":
         case "quit":
-          ks.Quit();
           break;
         case "r":
           Console.Clear();
-          ks.Reset();
           break;
-
+        case "p":
+          ks.PreviousNode();
+          break;
         default:
           if (int.TryParse(input, out int num))
           {
@@ -57,11 +57,11 @@ namespace animalKingdom.Controllers
     //NOTE this should print your messages for the game.
     private void Print()
     {
-      foreach (string message in ks.Messages)
-      {
-        System.Console.WriteLine(message);
-      }
-      ks.Messages.Clear();
+      // foreach (string message in ks.Messages)
+      // {
+      //   System.Console.WriteLine(message);
+      // }
+      // ks.Messages.Clear();
     }
 
   }

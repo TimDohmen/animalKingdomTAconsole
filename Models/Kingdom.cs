@@ -24,7 +24,6 @@ namespace animalKingdom.Models
       Node amphib = new Node("Amphibians");
 
 
-
       Node invertebrate = new Node("Invertebrates");
 
 
@@ -39,8 +38,46 @@ namespace animalKingdom.Models
       Node worm = new Node("Worm Like");
       Node notworm = new Node("Not-Worm Like");
 
+      currentNode = start;
 
 
+      start.AddNode(vertebrate);
+      start.AddNode(invertebrate);
+
+      vertebrate.Parent = start;
+      vertebrate.AddNode(warm);
+      vertebrate.AddNode(cold);
+      warm.Parent = vertebrate;
+      warm.AddNode(mammal);
+      warm.AddNode(bird);
+      bird.Parent = warm;
+      mammal.Parent = warm;
+      cold.Parent = vertebrate;
+      cold.AddNode(fish);
+      cold.AddNode(reptile);
+      cold.AddNode(amphib);
+      fish.Parent = cold;
+      reptile.Parent = cold;
+      amphib.Parent = cold;
+
+      invertebrate.Parent = start;
+      invertebrate.AddNode(legs);
+      invertebrate.AddNode(nolegs);
+      legs.Parent = invertebrate;
+      legs.AddNode(threelegs);
+      legs.AddNode(morelegs);
+      threelegs.Parent = legs;
+      morelegs.Parent = legs;
+
+      nolegs.Parent = invertebrate;
+      nolegs.AddNode(worm);
+      nolegs.AddNode(notworm);
+      worm.Parent = nolegs;
+      notworm.Parent = nolegs;
+    }
+    public Kingdom()
+    {
+      Setup();
     }
   }
 }
