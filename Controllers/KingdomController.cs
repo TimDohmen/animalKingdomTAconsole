@@ -15,33 +15,37 @@ namespace animalKingdom.Controllers
       while (true)
       {
         ks.PrintKingdoms();
-        GetUserInput();
         Print();
+        GetUserInput();
       }
     }
     public void GetUserInput()
     {
-      Console.WriteLine("Enter a number to visit that kingdom ");
+      Console.WriteLine("Enter a number to visit that kingdom or p to return to previous");
       string input = Console.ReadLine();
-      switch (input)
+      switch (input.ToLower())
       {
         case "q":
         case "quit":
+          Environment.Exit(0);
           break;
         case "r":
           Console.Clear();
+          ks.Reset();
           break;
         case "p":
+        case "prev":
+          Console.Clear();
           ks.PreviousNode();
           break;
         default:
           if (int.TryParse(input, out int num))
           {
             System.Console.Write("Loading");
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 3; i++)
             {
               Console.Write(".");
-              Thread.Sleep(500);
+              Thread.Sleep(200);
             }
             Console.Clear();
             ks.changeNode(num - 1);
@@ -57,11 +61,11 @@ namespace animalKingdom.Controllers
     //NOTE this should print your messages for the game.
     private void Print()
     {
-      // foreach (string message in ks.Messages)
-      // {
-      //   System.Console.WriteLine(message);
-      // }
-      // ks.Messages.Clear();
+      foreach (string message in ks.Messages)
+      {
+        System.Console.WriteLine(message);
+      }
+      ks.Messages.Clear();
     }
 
   }

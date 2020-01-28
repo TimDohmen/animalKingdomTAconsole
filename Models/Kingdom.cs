@@ -39,8 +39,7 @@ namespace animalKingdom.Models
       Node notworm = new Node("Not-Worm Like");
 
       currentNode = start;
-
-
+      start.Parent = start;
       start.AddNode(vertebrate);
       start.AddNode(invertebrate);
 
